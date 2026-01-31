@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blog.models import Post, Author
+from blog.models import Post, Author, Comment
 
 # Create your views here.
 
@@ -16,8 +16,10 @@ def post_list(request):
 
 def get_post_by_id(request, post_id):
     post = Post.objects.get(id = post_id)
+    comments = Comment.objects.filter(post = post_id)
     context = {
         "post": post,
+        "comments": comments,
     }
     return render(
         request,

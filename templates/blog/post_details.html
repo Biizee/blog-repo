@@ -5,14 +5,30 @@
     <meta charset="UTF-8">
     <title>Детальний огляд поста</title>
 
+    <style>
+        p {
+            margin-top: 5px;
+            margin-bottom: 23px;
+        }
+    </style>
+
 </head>
 
 <body>
     
     <h1> {{ post.title }} </h1>
-    <p> {{ post.published_date }} </p>
+    {{ post.published_date }}
     <br>
     <h2> {{ post.content }} </h2>
+
+    {% for comm in comments %}
+
+            <li>
+                <b> {{ comm.author_name }} </b>
+                <p> {{ comm.text }} </p>
+            </li>
+
+    {% endfor %}
 
 </body>
 

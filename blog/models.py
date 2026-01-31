@@ -21,3 +21,12 @@ class Post(models.Model):
 
     def published_recently(self):
             return self.publish_date >= timezone.now() - timezone.delta(days = 7)
+    
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.PROTECT)
+    author_name = models.CharField(max_length=200)
+    text = models.TextField()
+    created_date = models.DateTimeField()
+
+    def __str__(self):
+        return self.text
