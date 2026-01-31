@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Список постів</title>
+    <title>Список авторів</title>
 
     <style>
         a {
@@ -17,14 +17,14 @@
 
 <body>
     <h2>
-        Пости
+        Автори
     </h2>
     <ul>
-        {% for post in posts_list %}
+        {% for author in authors_list %}
 
             <li>
-                <a href="{% url 'post_details' post.id %}" target="_blank" >
-                    {{ post.title }} - {{ post.published_date }}
+                <a href="{% url 'authors_posts' author.id %}" target="_blank" >
+                    {{ author.name }}
                 </a>
             </li>
 
